@@ -53,7 +53,7 @@ public class ParserGUI {
 		frame.getContentPane().setLayout(null);
 
 		txtHttp = new JTextField();
-		txtHttp.setText("http://");
+		txtHttp.setText("http://lolmail.ru");
 		txtHttp.setBounds(104, 539, 289, 20);
 		frame.getContentPane().add(txtHttp);
 		txtHttp.setColumns(10);
