@@ -79,9 +79,6 @@ public class ParserGUI {
 				String saved_links = "";
 				for(Element link : links) {
 					saved_links += link.text()+"\n"+link.attr("abs:href")+ link.attr("rel")+"\n\n";
-//					System.out.println(link.text());
-//					System.out.println(link.attr("abs:href")+ link.attr("rel"));
-//					System.out.println("");
 				}
 				textArea.setText(saved_links);
 
