@@ -18,7 +18,7 @@ import javax.swing.JTextArea;
 public class ParserGUI {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField txtHttp;
 	private JScrollPane scrollPane;
 
 	/**
@@ -52,10 +52,11 @@ public class ParserGUI {
 		frame.getContentPane().setEnabled(false);
 		frame.getContentPane().setLayout(null);
 
-		textField = new JTextField();
-		textField.setBounds(104, 539, 289, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtHttp = new JTextField();
+		txtHttp.setText("http://");
+		txtHttp.setBounds(104, 539, 289, 20);
+		frame.getContentPane().add(txtHttp);
+		txtHttp.setColumns(10);
 		
 
 		scrollPane = new JScrollPane();
@@ -71,7 +72,7 @@ public class ParserGUI {
 			public void actionPerformed(ActionEvent arg0) {
 				Document doc = null;
 				try {
-					doc = Jsoup.connect(textField.getText()).get();
+					doc = Jsoup.connect(txtHttp.getText()).get();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
