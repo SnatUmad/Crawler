@@ -14,10 +14,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.Color;
 
 public class ParserGUI {
 
-	private JFrame frame;
+	private JFrame frmLoic;
 	private JTextField txtHttp;
 	private JScrollPane scrollPane;
 
@@ -29,7 +31,7 @@ public class ParserGUI {
 			public void run() {
 				try {
 					ParserGUI window = new ParserGUI();
-					window.frame.setVisible(true);
+					window.frmLoic.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,26 +50,31 @@ public class ParserGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setEnabled(false);
-		frame.getContentPane().setLayout(null);
+		frmLoic = new JFrame();
+		frmLoic.setTitle("LOIC");
+		frmLoic.getContentPane().setEnabled(false);
+		frmLoic.getContentPane().setLayout(null);
 
 		txtHttp = new JTextField();
-		txtHttp.setText("http://twitch.tv");
+		txtHttp.setText("http://jsoup.org");
 		txtHttp.setBounds(104, 539, 289, 20);
-		frame.getContentPane().add(txtHttp);
+		frmLoic.getContentPane().add(txtHttp);
 		txtHttp.setColumns(10);
 		
 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 11, 383, 517);
-		frame.getContentPane().add(scrollPane);
+		frmLoic.getContentPane().add(scrollPane);
 
 		JTextArea textArea = new JTextArea();
+		textArea.setFont(new Font("Courier New", Font.PLAIN, 9));
+		textArea.setEditable(false);
+		textArea.setForeground(new Color(0, 255, 0));
+		textArea.setBackground(Color.BLACK);
 		scrollPane.setViewportView(textArea);
 		textArea.setText("");
 
-		JButton btnUrl = new JButton("URL");
+		JButton btnUrl = new JButton("hax");
 		btnUrl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Document doc = null;
@@ -85,9 +92,9 @@ public class ParserGUI {
 
 			}});
 		btnUrl.setBounds(10, 538, 89, 23);
-		frame.getContentPane().add(btnUrl);
+		frmLoic.getContentPane().add(btnUrl);
 		
-		frame.setBounds(100, 100, 420, 609);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLoic.setBounds(100, 100, 420, 609);
+		frmLoic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
